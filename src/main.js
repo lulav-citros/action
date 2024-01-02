@@ -12,10 +12,10 @@ async function run() {
     const completions = core.getInput('completions', { required: true })
     const simulations = core.getInput('simulations', { required: true })
 
-    core.info(`name ${name}`)
-    core.info(`message ${message}`)
-    core.info(`completions ${completions}`)
-    core.info(`simulations ${simulations}`)
+    // core.info(`name ${name}`)
+    // core.info(`message ${message}`)
+    // core.info(`completions ${completions}`)
+    // core.info(`simulations ${simulations}`)
 
     // Get the current time and set as an output
     const time = new Date().toTimeString()

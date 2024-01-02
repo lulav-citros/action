@@ -67,12 +67,13 @@ describe('action', () => {
 
     // Mock the action's payload
     github.context.payload = {
-      actor: 'mona'
+      actor: 'vovacooper'
     }
 
     await main.run()
 
     expect(runMock).toHaveReturned()
+    // console.log(infoMock)
     expect(infoMock).toHaveBeenCalledWith(
       `The event payload: ${JSON.stringify(github.context.payload, null, 2)}`
     )
@@ -97,7 +98,7 @@ describe('action', () => {
 
     // Mock the action's payload
     github.context.payload = {
-      actor: 'mona'
+      actor: 'vovacooper'
     }
 
     await main.run()

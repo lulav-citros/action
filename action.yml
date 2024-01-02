@@ -1,5 +1,5 @@
 name: citros-citros
-description: run simulations and generate reports. 
+description: run simulations and generate reports.
 author: lulav-citros
 
 # Define your inputs here.
@@ -7,16 +7,16 @@ inputs:
   name:
     description: Batch name
     required: true
-    default: citros
+    default: citros-action
   message:
     description: Batch message
     required: true
-    default: "citris batch frun from action"
+    default: 'batch run from github'
   completions:
     description: How many times to run the simulation
     required: true
     default: 1
-  simulation: 
+  simulation:
     description: The name of the simulation to run
     required: true
 
