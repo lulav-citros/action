@@ -27,15 +27,15 @@ describe('action', () => {
     getInputMock.mockImplementation(name => {
       switch (name) {
         case 'name':
-          throw new Error('Something went wrong...')
+          return 'citros'
         case 'message':
-          throw new Error('Something went wrong...')
+          return 'default message from github action'
         case 'completions':
-          throw new Error('Something went wrong...')
+          return 1
         case 'simulation':
-          throw new Error('Something went wrong...')
+          return 'simulation'
         default:
-          return ''
+          throw new Error('Something went wrong...')
       }
     })
 
@@ -43,9 +43,13 @@ describe('action', () => {
     github.context.payload = {}
 
     await main.run()
-
     expect(runMock).toHaveReturned()
-    expect(setOutputMock).toHaveBeenCalledWith('time', expect.any(String))
+
+    // console.log(setOutputMock.mock)
+    expect(setOutputMock).toHaveBeenLastCalledWith(
+      'time',
+      expect.stringMatching(timeRegex)
+    )
   })
 
   it('logs the event payload', async () => {
@@ -53,15 +57,15 @@ describe('action', () => {
     getInputMock.mockImplementation(name => {
       switch (name) {
         case 'name':
-          throw new Error('Something went wrong...')
+          return 'citros'
         case 'message':
-          throw new Error('Something went wrong...')
+          return 'default message from github action'
         case 'completions':
-          throw new Error('Something went wrong...')
+          return 1
         case 'simulation':
-          throw new Error('Something went wrong...')
+          return 'simulation'
         default:
-          return ''
+          throw new Error('Something went wrong...')
       }
     })
 
@@ -71,9 +75,8 @@ describe('action', () => {
     }
 
     await main.run()
-
     expect(runMock).toHaveReturned()
-    // console.log(infoMock)
+
     expect(infoMock).toHaveBeenCalledWith(
       `The event payload: ${JSON.stringify(github.context.payload, null, 2)}`
     )
@@ -83,16 +86,8 @@ describe('action', () => {
     // Mock the action's inputs
     getInputMock.mockImplementation(name => {
       switch (name) {
-        case 'name':
-          throw new Error('Something went wrong...')
-        case 'message':
-          throw new Error('Something went wrong...')
-        case 'completions':
-          throw new Error('Something went wrong...')
-        case 'simulation':
-          throw new Error('Something went wrong...')
         default:
-          return ''
+          throw new Error('Something went wrong...')
       }
     })
 
@@ -102,7 +97,6 @@ describe('action', () => {
     }
 
     await main.run()
-
     expect(runMock).toHaveReturned()
     expect(setFailedMock).toHaveBeenCalledWith('Something went wrong...')
   })
