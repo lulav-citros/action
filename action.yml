@@ -1,8 +1,10 @@
 name: citros-citros
 description: run simulations and generate reports.
-icon: activity
-color: green
 author: lulav-citros
+
+branding:
+  icon: 'activity'
+  color: 'green'
 
 # Define your inputs here.
 inputs:
