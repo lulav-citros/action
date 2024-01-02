@@ -42,6 +42,10 @@ jobs:
         id: npm-ci-test
         run: npm run ci-test
 
+      - name: Build dist/ Directory
+        id: build
+        run: npm run bundle
+
   test-action:
     name: GitHub Actions Test
     runs-on: ubuntu-latest

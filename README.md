@@ -66,3 +66,4 @@ For example workflow runs, check out the
 | Output | Description             |
 | ------ | ----------------------- |
 | `time` | The time we greeted you |
+
