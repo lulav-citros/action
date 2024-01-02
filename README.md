@@ -1,22 +1,11 @@
-# Hello, World! JavaScript Action
+# CITROS Action
 
-[![GitHub Super-Linter](https://github.com/actions/hello-world-javascript-action/actions/workflows/linter.yml/badge.svg)](https://github.com/super-linter/super-linter)
+[![Lint Codebase](https://github.com/lulav-citros/action/actions/workflows/linter.yml/badge.svg)](https://github.com/lulav-citros/action/actions/workflows/linter.yml)
+
 ![CI](https://github.com/actions/hello-world-javascript-action/actions/workflows/ci.yml/badge.svg)
 
-This action prints `Hello, World!` or `Hello, <who-to-greet>!` to the log. To
-learn how this action was built, see
-[Creating a JavaScript action](https://docs.github.com/en/actions/creating-actions/creating-a-javascript-action).
 
-## Create Your Own Action
-
-To create your own action, you can use this repository as a template! Just
-follow the below instructions:
-
-1. Click the **Use this template** button at the top of the repository
-1. Select **Create a new repository**
-1. Select an owner and name for your new repository
-1. Click **Create repository**
-1. Clone your new repository
+This is the offitial action from CITROS. use this action to run your CITROS project on github. 
 
 
 ## Usage
@@ -29,14 +18,29 @@ name: Example Workflow
 on:
   workflow_dispatch:
     inputs:
-      who-to-greet:
-        description: Who to greet in the log
+      name:
+        description: the name of the batch run
         required: true
-        default: 'World'
+        default: 'citros'
+        type: string
+      message:
+        description: the message of the batch run
+        required: true
+        default: 'default message from github action'
+        type: string
+      completions:
+        description: how many simulations will run 
+        required: true
+        default: 1
+        type: number
+      simulation:
+        description: the simulation name to run (must be one of the files under `.citros/simulations`)
+        required: true
+        default: 'simulation'
         type: string
 
 jobs:
-  say-hello:
+  run:
     name: Say Hello
     runs-on: ubuntu-latest
 
@@ -67,3 +71,4 @@ For example workflow runs, check out the
 | ------ | ----------------------- |
 | `time` | The time we greeted you |
 
+The recorded data from the simulations and the generated report will be locates in the Actions Github artifact.
