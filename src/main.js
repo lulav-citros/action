@@ -7,9 +7,15 @@ const github = require('@actions/github')
  */
 async function run() {
   try {
-    // The `who-to-greet` input is defined in action metadata file
-    const whoToGreet = core.getInput('who-to-greet', { required: true })
-    core.info(`Hello, ${whoToGreet}!`)
+    const name = core.getInput('name', { required: true })
+    const message = core.getInput('message', { required: true })
+    const completions = core.getInput('completions', { required: true })
+    const simulations = core.getInput('simulations', { required: true })
+
+    core.info(`name ${name}`)
+    core.info(`message ${message}`)
+    core.info(`completions ${completions}`)
+    core.info(`simulations ${simulations}`)
 
     // Get the current time and set as an output
     const time = new Date().toTimeString()

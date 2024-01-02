@@ -1,13 +1,24 @@
-name: Hello, World!
-description: Greet someone and record the time
-author: GitHub Actions
+name: citros-citros
+description: run simulations and generate reports. 
+author: lulav-citros
 
 # Define your inputs here.
 inputs:
-  who-to-greet:
-    description: Who to greet
+  name:
+    description: Batch name
     required: true
-    default: World
+    default: citros
+  message:
+    description: Batch message
+    required: true
+    default: "citris batch frun from action"
+  completions:
+    description: How many times to run the simulation
+    required: true
+    default: 1
+  simulation: 
+    description: The name of the simulation to run
+    required: true
 
 # Define your outputs here.
 outputs:
