@@ -55,7 +55,10 @@ jobs:
         id: test-action
         uses: ./
         with:
-          who-to-greet: GitHub
+          name: GitHub
+          message: GitHub
+          completions: 1
+          simulation: test
 
       - name: Print Output
         id: output

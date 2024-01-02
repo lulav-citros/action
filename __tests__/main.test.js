@@ -26,8 +26,14 @@ describe('action', () => {
     // Mock the action's inputs
     getInputMock.mockImplementation(name => {
       switch (name) {
-        case 'who-to-greet':
-          return 'World'
+        case 'name':
+          throw new Error('Something went wrong...')
+        case 'message':
+          throw new Error('Something went wrong...')
+        case 'completions':
+          throw new Error('Something went wrong...')
+        case 'simulation':
+          throw new Error('Something went wrong...')
         default:
           return ''
       }
@@ -46,8 +52,14 @@ describe('action', () => {
     // Mock the action's inputs
     getInputMock.mockImplementation(name => {
       switch (name) {
-        case 'who-to-greet':
-          return 'World'
+        case 'name':
+          throw new Error('Something went wrong...')
+        case 'message':
+          throw new Error('Something went wrong...')
+        case 'completions':
+          throw new Error('Something went wrong...')
+        case 'simulation':
+          throw new Error('Something went wrong...')
         default:
           return ''
       }
