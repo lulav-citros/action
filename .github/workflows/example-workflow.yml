@@ -11,11 +11,27 @@ on:
       message:
         description: the message of the batch run
         required: true
-        default: 'citros'
+        default: 'default message from github action'
+        type: string
+      completions:
+        description: how many simulations will run
+        required: true
+        default: 1
+        type: number
+      simulation:
+        description:
+          the simulation name to run (must be one of the files under
+          `.citros/simulations`)
+        required: true
+        default: 'simulation'
+        type: string
+      notebook:
+        description:
+          the notebook to render to report after the simulations finish to run
         type: string
 
 jobs:
-  say-hello:
+  run:
     name: Say Hello
     runs-on: ubuntu-latest
 
@@ -25,6 +41,10 @@ jobs:
       # actions/hello-world-javascript-action@v1.2.3
       - name: Print to Log
         id: print-to-log
-        uses: actions/citros-action@main
+        uses: actions/citros@main
         with:
           name: ${{ inputs.name }}
+          message: ${{ inputs.message }}
+          completions: ${{ inputs.message }}
+          simulation: ${{ inputs.message }}
+          notebook: ${{ inputs.notebook }}

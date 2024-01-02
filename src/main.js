@@ -11,11 +11,7 @@ async function run() {
     const message = core.getInput('message', { required: true })
     const completions = core.getInput('completions', { required: true })
     const simulation = core.getInput('simulation', { required: true })
-
-    // core.debug(`name ${name}`)
-    // core.debug(`message ${message}`)
-    // core.debug(`completions ${completions}`)
-    // core.debug(`simulation ${simulation}`)
+    const notebook = core.getInput('notebook', { required: true })
 
     // Get the current time and set as an output
     const time = new Date().toTimeString()

@@ -38,6 +38,9 @@ on:
         required: true
         default: 'simulation'
         type: string
+      notebook:
+        description: the notebooks to render to report after the simulations finish to run
+        type: list
 
 jobs:
   run:
@@ -50,9 +53,13 @@ jobs:
       # actions/hello-world-javascript-action@v1.2.3
       - name: Print to Log
         id: print-to-log
-        uses: actions/hello-world-javascript-action@main
+        uses: actions/citros@main
         with:
-          who-to-greet: ${{ inputs.who-to-greet }}
+          name: ${{ inputs.name }}
+          message: ${{ inputs.message }}
+          completions: ${{ inputs.message }}
+          simulation: ${{ inputs.message }}
+          notebook: ${{ inputs.notebook }}
 ```
 
 For example workflow runs, check out the

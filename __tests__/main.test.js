@@ -34,6 +34,8 @@ describe('action', () => {
           return 1
         case 'simulation':
           return 'simulation'
+        case 'notebook':
+          return 'notebook'
         default:
           throw new Error('Something went wrong...')
       }
@@ -64,6 +66,8 @@ describe('action', () => {
           return 1
         case 'simulation':
           return 'simulation'
+        case 'notebook':
+          return 'notebook'
         default:
           throw new Error('Something went wrong...')
       }
